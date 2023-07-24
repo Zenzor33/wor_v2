@@ -35,7 +35,7 @@
           <div class="flex flex-1 flex-col justify-end">
             <p class="text-sm italic text-gray-500"><%= chair.company %></p>
             <p class="text-base font-medium text-gray-900">$<%= chair.price %></p>
-            <p class="text-base font-medium text-gray-900"> <%= chair.available_from ? "Available: #{chair.available_from.strftime('%Y-%m-%d')}" : "Availability date not specified" %></p>
+            <p class="text-base font-medium text-gray-900"> <%= display_availability(chair) %></p>
           </div>
         </div>
       </div>
