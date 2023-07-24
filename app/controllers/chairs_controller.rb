@@ -6,4 +6,8 @@ class ChairsController < ApplicationController
     def show 
         @chair = Chair.find(params[:id])
     end
+
+    def edit 
+        @chair = Chair.find(params[:id])
+    end 
 end
