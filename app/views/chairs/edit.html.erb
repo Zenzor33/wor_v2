@@ -4,7 +4,27 @@
 		<h1>Editing <%= @chair.company %> <%= @chair.name %></h1>
 		<%= f.label :name, class: label_classes %>
 		<div class="mt-2">
-			<%= f.text_field :name, class: text_field_classes, placeholder: "you@example.com" %>
+			<%= f.text_field :name, class: form_field_classes, placeholder: "Chair name" %>
+		</div>
+		<%= f.label :price, class: label_classes %>
+		<div class="mt-2">
+			<%= f.number_field :price, class: form_field_classes, placeholder: "Chair price" %>
+		</div>
+		<%= f.label :company, class: label_classes %>
+		<div class="mt-2">
+			<%= f.text_field :company, class: form_field_classes, placeholder: "Chair company" %>
+		</div>
+		<%= f.label :picture, class: label_classes %>
+		<div class="mt-2">
+			<%= f.text_field :picture, class: form_field_classes, placeholder: "Chair picture" %>
+		</div>
+		<%= f.label :description, class: label_classes %>
+		<div class="mt-2">
+			<%= f.text_area :description, class: form_field_classes, placeholder: "Chair picture" %>
+		</div>
+		<%= f.label :available_from, class: label_classes %>
+		<div class="mt-2">
+			<%= f.datetime_field :available_from, class: form_field_classes, placeholder: "Chair picture" %>
 		</div>
 	<%end %>
 </div>
