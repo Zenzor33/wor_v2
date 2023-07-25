@@ -26,5 +26,10 @@
 		<div class="mt-2">
 			<%= f.date_field :available_from, class: form_field_classes, placeholder: "Chair picture" %>
 		</div>
+
+		<div class="flex py-2">
+  		<button type="button" class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+    <%= f.submit %>
+  </button>
 	<%end %>
 </div>
