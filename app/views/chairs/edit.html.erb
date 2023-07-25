@@ -2,9 +2,9 @@
 <div class="container mx-auto px-4 mt-8 max-w-xs py-16">
 	<%= form_with(model: @chair) do |f| %>
 		<h1>Editing <%= @chair.company %> <%= @chair.name %></h1>
-		<%= f.label :name, class: "block text-sm font-medium leading-6 text-gray-900 py-2" %>
+		<%= f.label :name, class: label_classes %>
 		<div class="mt-2">
-			<%= f.text_field :name, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6", placeholder: "you@example.com" %>
+			<%= f.text_field :name, class: text_field_classes, placeholder: "you@example.com" %>
 		</div>
 	<%end %>
 </div>
