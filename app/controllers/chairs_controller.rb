@@ -26,6 +26,13 @@ class ChairsController < ApplicationController
       @chair.save
       redirect_to @chair
     end
+
+    def destroy
+      @chair = Chair.find(params[:id])
+      @chair.destroy 
+
+      redirect_to root_path, status: :see_other
+    end
 end
 
 private
