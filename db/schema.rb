@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_121620) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_101431) do
   create_table "chairs", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.string "country"
     t.string "city"
-    t.string "picture"
+    t.string "picture", default: "placeholder_chair.jpeg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company"
