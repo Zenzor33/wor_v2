@@ -24,8 +24,11 @@ class ChairsController < ApplicationController
     
     def create 
       @chair = Chair.new(chair_params) 
-      @chair.save
-      redirect_to @chair
+      if @chair.save
+        redirect_to @chair
+      else  
+        render :new, status: :unprocessable_entity
+      end
     end
 
     def destroy
