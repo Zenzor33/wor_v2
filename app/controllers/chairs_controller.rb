@@ -15,6 +15,7 @@ class ChairsController < ApplicationController
     def update
       @chair = Chair.find(params[:id])
       if @chair.update(chair_params)
+        flash[:notice] = "Chair successfully updated!"
 			  redirect_to @chair
       else  
         render :edit, status: :unprocessable_entity
@@ -28,6 +29,7 @@ class ChairsController < ApplicationController
     def create 
       @chair = Chair.new(chair_params) 
       if @chair.save
+        flash[:notice] = "Chair successfully created!"
         redirect_to @chair
       else  
         render :new, status: :unprocessable_entity #renders :new form with all valid form data
