@@ -14,8 +14,11 @@ class ChairsController < ApplicationController
 
     def update
       @chair = Chair.find(params[:id])
-      @chair.update(chair_params)
-			redirect_to @chair
+      if @chair.update(chair_params)
+			  redirect_to @chair
+      else  
+        render :edit, status: :unprocessable_entity
+      end
     end 
 
     def new
@@ -27,7 +30,7 @@ class ChairsController < ApplicationController
       if @chair.save
         redirect_to @chair
       else  
-        render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_entity #renders :new form with all valid form data
       end
     end
 

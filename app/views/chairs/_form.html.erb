@@ -1,5 +1,8 @@
 <div class="container mx-auto px-4 mt-8 max-w-xs py-16">
 	<%= form_with(model: chair) do |f| %>
+
+	  <%= render "shared/errors", object: chair %>
+		
 		<%= f.label :name, class: label_classes %>
 		<div class="mt-2">
 			<% if chair.errors[:name].any? %>
