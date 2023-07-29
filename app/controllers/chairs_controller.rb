@@ -39,7 +39,8 @@ class ChairsController < ApplicationController
     def destroy
       @chair = Chair.find(params[:id])
       @chair.destroy 
-
+      
+      flash[:notice] = "Chair successfully destroyed" 
       redirect_to root_path, status: :see_other
     end
 end
