@@ -1,9 +1,13 @@
-<%= simple_form_for chair, defaults: {label_html: {class: label_classes}} do |f| %>
-  <%= f.input :name, label:"Chair name", error:"Name is required" %>
-  <%= f.input :price, hint:"Must be greater than 0" %>
-	<%= f.input :company, placeholder: "Amazon" %>
-	<%= f.input :picture, input_html: {class: form_field_classes} %>
-	<%= f.input :description, placeholder:"test" %>
-	<%= f.input :available_from %>
-  <%= f.button :submit %>
+<div class="container mx-auto px-4 mt-8 max-w-xs py-16">
+<%= simple_form_for chair, defaults: {label_html: {class: label_classes}, input_html: {class: form_input_classes}} do |f| %>
+  <%= f.input :name, error: false %>
+	<%= f.full_error :name, class: form_field_with_error_classes %>
+  <%= f.input :price %>
+	<%= f.input :company %>
+	<%= f.input :picture %>
+	<%= f.input :description %>
+	<%= f.input :available_from, error: false, include_blank: true %>
+	<%= f.full_error :available_from,  class: form_field_with_error_classes %>
+  <%= f.button :submit, class: form_field_button_classes %>
 <% end %>
+</div>
