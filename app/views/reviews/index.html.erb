@@ -1,3 +1,7 @@
+<div class="flex justify-center rounded-md p-4 mt-4"> 
+  Reviews for <%= @chair.company %> <%= @chair.name %>
+</div>
+
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-32">
     <div class="lg:col-span-4">
@@ -25,7 +29,7 @@
           </div>
           <p class="sr-only">4 out of 5 stars</p>
         </div>
-        <p class="ml-2 text-sm text-gray-900">Based on 1624 reviews</p>
+        <p class="ml-2 text-sm text-gray-900">Based on <%= @chair.reviews.size%> reviews</p>
       </div>
 
       <div class="mt-6">
@@ -126,13 +130,15 @@
     <div class="mt-16 lg:col-span-7 lg:col-start-6 lg:mt-0">
       <h3 class="sr-only">Recent reviews</h3>
 
+      
       <div class="flow-root">
         <div class="-my-12 divide-y divide-gray-200">
+          <% @reviews.each do |r| %>
           <div class="py-12">
             <div class="flex items-center">
               <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="Emily Selman." class="h-12 w-12 rounded-full">
               <div class="ml-4">
-                <h4 class="text-sm font-bold text-gray-900">Emily Selman</h4>
+                <h4 class="text-sm font-bold text-gray-900"><%= r.name %></h4>
                 <div class="mt-1 flex items-center">
                   <!-- Active: "text-yellow-400", Default: "text-gray-300" -->
                   <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -156,12 +162,14 @@
             </div>
 
             <div class="mt-4 space-y-6 text-base italic text-gray-600">
-              <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
+              <p><%= r.comment %></p>
             </div>
           </div>
+          <% end %>
 
           <!-- More reviews... -->
         </div>
+        
       </div>
     </div>
   </div>
