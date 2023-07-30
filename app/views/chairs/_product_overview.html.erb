@@ -83,7 +83,8 @@
               </svg>
             </div>
             <div class="ml-4 flex">
-              <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">See all <%= @chair.reviews.size %> reviews</a>
+              <%= link_to "See all #{@chair.reviews.size} reviews", chair_reviews_path(@chair), class: "text-sm font-medium text-indigo-600 hover:text-indigo-500" %>
+ 
             </div>
             <p class="sr-only">4 out of 5 stars</p>
           </div>

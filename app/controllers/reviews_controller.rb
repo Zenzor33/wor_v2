@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def index 
-    @reviews = Review.all
+    @chair = Chair.find(params[:chair_id])
+    @reviews = @chair.reviews.all
   end
 end
