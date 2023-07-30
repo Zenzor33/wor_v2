@@ -1,5 +1,7 @@
 class Chair < ApplicationRecord
 
+  has_many :reviews
+
   validates :name, :available_from, presence: true
 
   def self.available
