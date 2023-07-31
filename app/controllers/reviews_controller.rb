@@ -33,6 +33,13 @@ class ReviewsController < ApplicationController
       redirect_to edit_chair_review_path(@chair, @review), status: :unprocessable_entity
     end 
   end 
+
+  def destroy
+    @review = @chair.reviews.find(params[:id])
+    @review.destroy 
+
+    redirect_to chair_reviews_path(@chair), notice: "Review deleted", status: :see_other
+  end 
 end
 
 private 
