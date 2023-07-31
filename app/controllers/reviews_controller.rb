@@ -23,6 +23,15 @@ class ReviewsController < ApplicationController
   def edit
     @review = @chair.reviews.find(params[:id])
   end
+
+  def update 
+    @review = @chair.reviews.find(params[:id])
+    if @review.update(review_params)
+      redirect_to chair_reviews_path(@chair), notice: "Review successfully updated"
+    else  
+      fail
+    end 
+  end 
 end
 
 private 
