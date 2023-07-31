@@ -19,6 +19,10 @@ class ReviewsController < ApplicationController
       redirect_to new_chair_review_path(@chair), status: :unprocessable_entity
     end
   end
+
+  def edit
+    @review = @chair.reviews.find(params[:id])
+  end
 end
 
 private 

@@ -163,10 +163,12 @@
 
             <div class="mt-4 space-y-6 text-base italic text-gray-600">
               <p><%= r.comment %></p>
+              <%= link_to "Edit Review", edit_chair_review_path(@chair,r.chair_id), class: form_field_button_classes%>
+              <%= link_to "Delete Review", root_path, class: form_field_button_classes%>
             </div>
-          </div>
+            
           <% end %>
-
+          </div>
           <!-- More reviews... -->
         </div>
         
