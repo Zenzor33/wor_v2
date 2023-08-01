@@ -28,8 +28,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to chair_reviews_path(@chair), notice: "Review successfully updated"
     else  
-      flash[:alert] = @review.errors.full_messages
-      redirect_to edit_chair_review_path(@chair, @review), status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end 
   end 
 
