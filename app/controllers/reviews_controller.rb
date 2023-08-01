@@ -15,8 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save 
       redirect_to chair_reviews_path(@chair), notice: "Review created successfully"
     else  
-      flash[:alert] = @review.errors.full_messages
-      redirect_to new_chair_review_path(@chair), status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

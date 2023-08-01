@@ -1,11 +1,14 @@
-<%= render "shared/errors" if flash[:alert] %>
-
 <div class="container mx-auto px-4 mt-4 max-w-xs py-4">
+  <%= simple_form_for [chair, review], defaults: {label_html: {class: label_classes}, input_html: {class: form_input_classes}} do |f| %>
 
-<%= simple_form_for [chair, review], defaults: {label_html: {class: label_classes}, input_html: {class: form_input_classes}} do |f| %>
-<%= f.input :name %>
-<%= f.input :stars %>
-<%= f.input :comment %>
-<%= f.button :submit, class: form_field_button_classes %>
-<% end %>
+    <% if f.object.errors.present? %>
+      <%= render "shared/errors", errors: f.object.errors %>
+    <% end %> 
+
+    <%= f.input :name %>
+    <%= f.input :stars %>
+    <%= f.input :comment %>
+    <%= f.button :submit, class: form_field_button_classes %>
+    
+  <% end %>
 </div>
