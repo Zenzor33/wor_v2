@@ -35,4 +35,28 @@ module ChairsHelper
         "rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-2" 
     end
 
+    def calculate_width(object, rating)
+        total_reviews_size = object.reviews.size
+        reviews_count = object.reviews.where(stars: rating).count
+        ratings_percentage = reviews_count / total_reviews_size
+    
+        if total_reviews_size.zero?
+          "width: 0%"
+        else 
+          "width: calc(#{ratings_percentage} * 100%)"
+        end
+      end 
+    
+      def reviews_percentage(object, rating)
+        total_reviews_size = object.reviews.size
+        reviews_count = object.reviews.where(stars: rating).count
+        ratings_percentage = reviews_count / total_reviews_size
+        
+        if total_reviews_size.zero?
+          "0%"
+        else 
+          "#{ratings_percentage}%"
+        end
+      end 
+
 end
