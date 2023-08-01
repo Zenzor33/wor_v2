@@ -6,11 +6,11 @@
       </svg>
     </div>
     <div class="ml-3">
-      <h3 class="text-sm font-medium text-red-800">There were <%= pluralize(flash[:alert].size, 'error') %> with your submission</h3>
+      <h3 class="text-sm font-medium text-red-800">There were <%= pluralize(errors.size, 'error') %> with your submission</h3>
       <div class="mt-2 text-sm text-red-700">
         <ul role="list" class="list-disc space-y-1 pl-5">
-          <% flash[:alert].each do |e| %>
-            <li><%= e %></li>
+          <% errors.each do |error| %>
+            <li><%= error.full_message %></li>
           <% end %>
         </ul>
       </div>
