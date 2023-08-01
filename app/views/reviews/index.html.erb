@@ -29,7 +29,7 @@
           </div>
           <p class="sr-only">4 out of 5 stars</p>
         </div>
-        <p class="ml-2 text-sm text-gray-900">Based on <%= @chair.reviews.size%> reviews</p>
+        <p class="ml-2 text-sm text-gray-900"><%= @chair.reviews.average(:stars).to_s %> stars based on <%= @chair.reviews.size%> reviews</p>
       </div>
 
       <div class="mt-6">
