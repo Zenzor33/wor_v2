@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_02_175143) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_114841) do
   create_table "chairs", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_175143) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "avatar"
+    t.string "avatar", default: "dhh.jpeg"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
