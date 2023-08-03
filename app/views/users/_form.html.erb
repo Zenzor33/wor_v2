@@ -6,11 +6,15 @@
     <% end %> 
 
 
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
+    <%= f.input :name, error: false %>
+    <%= f.full_error :name, class: form_field_with_error_classes %>
+    <%= f.input :email, error: false %>
+    <%= f.full_error :email, class: form_field_with_error_classes %>
+    <%= f.input :password, error: false %>
+    <%= f.full_error :password, class: form_field_with_error_classes %>
+    <%= f.input :password_confirmation, error: false %>
+    <%= f.full_error :password_confirmation, class: form_field_with_error_classes %>
     <%= f.button :submit, class: form_field_button_classes %>
-    
+
   <% end %>
 </div>
