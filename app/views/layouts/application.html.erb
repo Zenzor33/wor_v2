@@ -15,6 +15,7 @@
   <body>
     <%= render "layouts/header" %>
     <%= render "layouts/flash_notice" if flash[:notice] %>
+    <%= render "layouts/flash_alert" if flash[:alert] %>
     <%= yield %>
   </body>
 </html>
