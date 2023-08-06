@@ -32,6 +32,13 @@ class UsersController < ApplicationController
       render :edit, status: :unprocessable_entity
     end 
   end
+
+  def destroy  
+    @user = User.find(params[:id])
+    @user.delete
+
+    redirect_to users_path, notice: "Account deleted", status: :see_other
+  end
 end
 
 private  
