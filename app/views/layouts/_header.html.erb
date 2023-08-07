@@ -75,8 +75,9 @@
             <% if current_user %>
               <!-- Active: "bg-gray-100", Not Active: "" -->
               <%# <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a> %>
-              <%= link_to "Your Profile", user_path(current_user), id:"menuitem", role: "menuitem", tabindex: "-1", class: "block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" %>
-              <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign out</a>
+              <%= link_to "Your Profile", user_path(current_user), id:"user-menu-item-0", role: "menuitem", tabindex: "-1", class: "block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" %>
+              <%# <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign out</a> %>
+              <%= link_to "Sign Out", session_path, id:"user-menu-item-1", role: "menuitem", tabindex: "-1", class: "block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700", data: { turbo_method: :delete } %>
               <%# <a href="#" class="block hover:bg-gray-100 px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a> %>
             <% else %>
               <!-- Active: "bg-gray-100", Not Active: "" -->
