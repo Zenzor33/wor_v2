@@ -1,7 +1,9 @@
 <%= render "category_filter" %>
 
+<% if current_user_admin? %>
 <div class="flex justify-center py-16">
   <button type="button" class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
     <%= link_to "New Chair", new_chair_path %>
   </button>
 </div>
+<% end %>

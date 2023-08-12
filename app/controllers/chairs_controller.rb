@@ -1,4 +1,7 @@
 class ChairsController < ApplicationController
+
+  before_action :require_admin, only: [:new, :create]
+
     def index 
       @chairs = Chair.all
       @available_chairs = Chair.available
