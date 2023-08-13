@@ -37,37 +37,6 @@
       </div>
     </div>
 
-    <div class="mt-16 lg:col-span-7 lg:col-start-6 lg:mt-0">
-      <h3 class="sr-only">Recent reviews</h3>
-
-      
-      <div class="flow-root">
-        <div class="-my-12 divide-y divide-gray-200">
-          <% @reviews.each do |review| %>
-            <div class="py-12">
-              <div class="flex items-center">
-                <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="Emily Selman." class="h-12 w-12 rounded-full">
-                <div class="ml-4">
-                  <h4 class="text-sm font-bold text-gray-900"><%= review.name %></h4>
-                  <div class="mt-1 flex items-center">
-                    <%= render "chair_review_stars", review: review %>
-                  </div>
-                  <p class="sr-only">5 out of 5 stars</p>
-                </div>
-              </div>
-
-              <div class="mt-4 space-y-6 text-base italic text-gray-600">
-                <p><%= review.comment %></p>
-                <%= link_to "Edit Review", edit_chair_review_path(@chair,review.id), class: form_field_button_classes%>
-                <%= link_to "Delete Review", chair_review_path(@chair, review.id), data: { turbo_method: :delete, turbo_confirm: "Really?" }, class: form_field_button_classes %>
-              </div>
-            </div>
-          <% end %>
-          
-          <!-- More reviews... -->
-        </div>
-        
-      </div>
-    </div>
+    <%= render "chair_reviews", reviews: @reviews %>
   </div>
 </div>

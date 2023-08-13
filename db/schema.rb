@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_12_141542) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_200029) do
   create_table "chairs", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -25,12 +25,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_141542) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "name"
     t.integer "stars"
     t.text "comment"
     t.integer "chair_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["chair_id"], name: "index_reviews_on_chair_id"
   end
 

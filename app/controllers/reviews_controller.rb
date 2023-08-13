@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+  before_action :require_signin
   before_action :set_chair
 
   def index 
@@ -12,6 +13,7 @@ class ReviewsController < ApplicationController
 
   def create 
     @review = @chair.reviews.new(review_params)
+    @review.user = current_user
     if @review.save 
       redirect_to chair_reviews_path(@chair), notice: "Review created successfully"
     else  

@@ -1,7 +1,8 @@
 class Review < ApplicationRecord
   belongs_to :chair
+  belongs_to :user
 
-  validates :name, :stars, :comment, presence: true
+  validates :stars, :comment, presence: true
 
 
 end
