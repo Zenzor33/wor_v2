@@ -1,6 +1,8 @@
 class Chair < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
 
   validates :name, :available_from, presence: true
 
