@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :favorites
+  
   root "chairs#index"
 
   resources :chairs do 
+    resources :favorites, only: [:create, :destroy]
     resources :reviews
   end
 
