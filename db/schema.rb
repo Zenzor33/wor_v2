@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_152042) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_19_163131) do
   create_table "chairs", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -31,6 +31,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_152042) do
     t.datetime "updated_at", null: false
     t.index ["chair_id"], name: "index_favorites_on_chair_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "feature_assignments", force: :cascade do |t|
+    t.integer "chair_id", null: false
+    t.integer "feature_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chair_id"], name: "index_feature_assignments_on_chair_id"
+    t.index ["feature_id"], name: "index_feature_assignments_on_feature_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -55,5 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_152042) do
 
   add_foreign_key "favorites", "chairs"
   add_foreign_key "favorites", "users"
+  add_foreign_key "feature_assignments", "chairs"
+  add_foreign_key "feature_assignments", "features"
   add_foreign_key "reviews", "chairs"
 end

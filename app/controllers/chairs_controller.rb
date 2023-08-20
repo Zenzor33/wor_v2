@@ -9,6 +9,7 @@ class ChairsController < ApplicationController
 
     def show 
       @chair = Chair.find(params[:id])
+      @features = @chair.features
       @likers = @chair.likers 
     end
 
