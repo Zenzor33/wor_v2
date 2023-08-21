@@ -15,6 +15,9 @@
 	<%= f.input :description %>
 	<%= f.input :available_from, error: false, include_blank: true %>
 	<%= f.full_error :available_from,  class: form_field_with_error_classes %>
+  <%= f.association :features, as: :check_boxes,
+   label_html: {class: "font-medium text-gray-900"},
+   input_html: {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}  %>
   <%= f.button :submit, class: form_field_button_classes %>
 <% end %>
 </div>
