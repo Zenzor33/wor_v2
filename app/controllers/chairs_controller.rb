@@ -9,7 +9,7 @@ class ChairsController < ApplicationController
 
     def show 
       @chair = Chair.find(params[:id])
-      @features = @chair.features
+      @features = @chair.features.order(:name)
       @likers = @chair.likers 
     end
 
@@ -54,5 +54,5 @@ private
 
 def chair_params
   params.require(:chair).
-   permit(:name, :price, :company, :picture, :description, :available_from)
+   permit(:name, :price, :company, :picture, :description, :available_from, :feature_ids => [])
 end

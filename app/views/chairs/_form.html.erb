@@ -1,23 +1,32 @@
 <div class="container mx-auto px-4 mt-8 max-w-xs py-16">
-<%= simple_form_for chair, defaults: {label_html: {class: label_classes}, input_html: {class: form_input_classes}} do |f| %>
+  <%= simple_form_for chair, defaults: {label_html: {class: label_classes}, input_html: {class: form_input_classes}} do |f| %>
 
+    <% if f.object.errors.present? %>
+      <%= render "shared/errors", errors: f.object.errors %>
+    <% end %>
 
-  <% if f.object.errors.present? %>
-    <%= render "shared/errors", errors: f.object.errors %>
-  <% end %> 
-	
+    <%= f.input :name, error: false %>
+    <%= f.full_error :name, class: form_field_with_error_classes %>
+    <%= f.input :price %>
+    <%= f.input :company %>
+    <%= f.input :picture %>
+    <%= f.input :description %>
+    <%= f.input :available_from, error: false, include_blank: true %>
+    <%= f.full_error :available_from,  class: form_field_with_error_classes %>
 
-  <%= f.input :name, error: false %>
-	<%= f.full_error :name, class: form_field_with_error_classes %>
-  <%= f.input :price %>
-	<%= f.input :company %>
-	<%= f.input :picture %>
-	<%= f.input :description %>
-	<%= f.input :available_from, error: false, include_blank: true %>
-	<%= f.full_error :available_from,  class: form_field_with_error_classes %>
-  <%= f.association :features, as: :check_boxes,
-   label_html: {class: "font-medium text-gray-900"},
-   input_html: {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}  %>
-  <%= f.button :submit, class: form_field_button_classes %>
-<% end %>
+    <fieldset>
+      <legend class="sr-only">Features</legend>
+      <div class="space-y-5">
+        <%= f.association :features, 
+                          as: :check_boxes, 
+                          wrapper: false, 
+                          item_wrapper_tag: :div, 
+                          item_wrapper_class: 'relative flex items-center space-x-3 space-y-5', 
+                          label_html: { class: 'text-sm leading-6 font-medium text-gray-900' }, 
+                          input_html: { class: 'h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600' } %>
+      </div>
+    </fieldset>
+
+    <%= f.button :submit, class: form_field_button_classes %>
+  <% end %>
 </div>
