@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :users
   get "signup" => "users#new"
+  get "chairs/filter/:filter" => "chairs#index", as: :filtered_chairs
 
 end

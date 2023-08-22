@@ -258,17 +258,17 @@
                   <legend class="block text-sm font-medium text-gray-900">Category</legend>
                   <div class="space-y-3 pt-6">
                     <div class="flex items-center">
-                    <%= link_to root_path(chair: @available_chairs)  do%>
+                    <%= link_to filtered_chairs_path(:available)  do%>
                       <%= check_box_tag "category-0", "category-0", false, id: "category-0", class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
                       <%= label_tag "category-0", "Available Now", class: "ml-3 text-sm text-gray-600" %>
                     <% end %>
                     </div>
                     <div class="flex items-center">
-                      <input id="category-1" name="category[]" value="tees" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                      <label for="category-1" class="ml-3 text-sm text-gray-600">Tees</label>
-                    <%= link_to root_path(chair: @available_chairs)  do%>
+                      <%# <input id="category-1" name="category[]" value="tees" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                      <label for="category-1" class="ml-3 text-sm text-gray-600">Tees</label> %>
+                    <%= link_to filtered_chairs_path(:low_price_chair)  do%>
                       <%= check_box_tag "category-1", "<new-arrivals>", false, id: "category-1", class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
-                      <%= label_tag "category-1", "Tees1", class: "ml-3 text-sm text-gray-600" %>
+                      <%= label_tag "category-1", "Less than $201", class: "ml-3 text-sm text-gray-600" %>
                     <% end %>
                     </div>
                     <div class="flex items-center">

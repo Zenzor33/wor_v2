@@ -3,8 +3,14 @@ class ChairsController < ApplicationController
   before_action :require_admin, only: [:new, :create]
 
     def index 
-      @chairs = Chair.all
-      @available_chairs = Chair.available
+      case params[:filter]
+      when "available"
+        @chairs = Chair.available  
+      when "low_price_chair"
+        @chairs = Chair.low_price_chair
+      else
+        @chairs = Chair.all
+      end
     end
 
     def show 
