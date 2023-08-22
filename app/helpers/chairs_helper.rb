@@ -35,6 +35,11 @@ module ChairsHelper
         "rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-2" 
     end
 
+    def nav_link_url(scope)
+        current_page?(filtered_chairs_path(scope)) ? chairs_url : filtered_chairs_path(scope)
+    end
+    
+
     def user_likes_chair?(user, chair)
         user && chair.likers.exists?(id: user.id)
     end 
