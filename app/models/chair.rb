@@ -20,7 +20,7 @@ class Chair < ApplicationRecord
   end
 
   def to_param 
-    name.parameterize
+    slug
   end 
 
   private 

@@ -1,6 +1,7 @@
 class ChairsController < ApplicationController
 
   before_action :require_admin, only: [:new, :create]
+  before_action :set_chair, only: [:show, :edit, :update, :destroy]
 
     def index 
       case params[:filter]
@@ -19,11 +20,11 @@ class ChairsController < ApplicationController
     end
 
     def edit 
-      @chair = Chair.find(params[:id])
+      
     end 
 
     def update
-      @chair = Chair.find(params[:id])
+      
       if @chair.update(chair_params)
         flash[:notice] = "Chair successfully updated!"
 			  redirect_to @chair
@@ -47,7 +48,6 @@ class ChairsController < ApplicationController
     end
 
     def destroy
-      @chair = Chair.find(params[:id])
       @chair.destroy 
       
       flash[:notice] = "Chair successfully destroyed" 
@@ -60,5 +60,9 @@ private
 def chair_params
   params.require(:chair).
    permit(:name, :price, :company, :picture, :description, :available_from, :feature_ids => [])
+end
+
+def set_chair
+  @chair = Chair.find_by!(slug: params[:id])
 end
 
