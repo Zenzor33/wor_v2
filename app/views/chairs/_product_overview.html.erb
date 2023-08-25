@@ -151,7 +151,7 @@
           <% end %>
         <% else %>
           <!-- Unliked state -->
-          <%= button_to chair_favorites_path(@chair.id), class: "ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500" do %>
+          <%= button_to chair_favorites_path(@chair), class: "ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500" do %>
           <%= render "heart" %>
           <% end %>
         <% end %> 

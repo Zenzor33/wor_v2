@@ -1,6 +1,8 @@
 class Chair < ApplicationRecord
 
   before_save :set_slug
+  before_validation :set_slug, on: [:create]
+
 
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
