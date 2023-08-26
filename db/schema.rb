@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_22_152414) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_26_163523) do
   create_table "chairs", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.string "country"
     t.string "city"
-    t.string "picture", default: "placeholder_chair.jpg"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company"
@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_152414) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "avatar", default: "dhh.jpg"
+    t.string "avatar"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
