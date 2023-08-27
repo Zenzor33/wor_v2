@@ -15,9 +15,12 @@ class Chair < ApplicationRecord
   validates :slug, presence: true, uniqueness: true
 
   scope :available, -> { where("available_from < ?", Time.now).order("available_from") }
+  # TODO: change Time.now to Time.current
   scope :low_price_chair, -> { where("price < ?", 500).order("price") }
 
   def average_rating
+    return nil if reviews.none?
+    
     reviews.average(:stars).round.to_i
   end
 

@@ -48,6 +48,7 @@ def set_chair
   @chair = Chair.find_by!(slug: params[:chair_id])
 end
 
+
 def review_params
   params.require(:review).
    permit(:name, :stars, :comment)
