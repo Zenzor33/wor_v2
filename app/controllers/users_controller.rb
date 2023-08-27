@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to users_path, notice: "Registration successful"
     else  
+      flash[:alert] = "Registration failed"
       render :new, status: :unprocessable_entity
     end 
   end
@@ -53,7 +54,7 @@ def require_correct_user
 end 
 
 def user_params
-  @user = User.find(params[:id])
+  @user = User.find_by(params[:name])
   params.require(:user).
    permit(:name, :email, :password, :password_confirmation)
 end
