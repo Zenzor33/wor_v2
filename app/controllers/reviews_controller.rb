@@ -45,7 +45,7 @@ end
 private 
 
 def set_chair
-  @chair = Chair.find(params[:chair_id])
+  @chair = Chair.find_by!(slug: params[:id])
 end
 
 def review_params
