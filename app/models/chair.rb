@@ -9,9 +9,10 @@ class Chair < ApplicationRecord
   has_many :likers, through: :favorites, source: :user
   has_many :feature_assignments, dependent: :destroy
   has_many :features, through: :feature_assignments
+  belongs_to :user
 
 
-  validates :name, :available_from, presence: true
+  validates :name, :available_from, :user, presence: true
   validates :slug, presence: true, uniqueness: true
 
   scope :available, -> { where("available_from < ?", Time.now).order("available_from") }

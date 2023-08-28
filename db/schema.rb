@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_28_083514) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_28_095006) do
   create_table "chairs", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_083514) do
     t.date "available_from"
     t.text "description"
     t.string "slug"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_chairs_on_user_id"
   end
 
