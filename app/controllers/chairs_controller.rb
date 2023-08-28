@@ -22,7 +22,6 @@ class ChairsController < ApplicationController
   end 
 
   def update
-    
     if @chair.update(chair_params)
       flash[:notice] = "Chair successfully updated!"
       redirect_to @chair
@@ -36,7 +35,7 @@ class ChairsController < ApplicationController
   end
   
   def create 
-    @chair = Chair.new(chair_params) 
+    @chair = current_user.chairs.build(chair_params) 
     if @chair.save
       flash[:notice] = "Chair successfully created!"
       redirect_to @chair
