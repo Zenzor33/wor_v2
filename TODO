@@ -5,7 +5,13 @@ TODO:
 2. Allow verified users to create, update, edit, and destroy chairs that they are the owner of. 
 3. Display the user's created chairs in the user's show page.
 
-
+1. Create a boolean column in Users for isVerified
+-- rails g migration AddIsVerifiedToUsers isVerified boolean
+-- remove nil value from migration
+-- run migration
+-- set value of isVerified to all users except richard and billy to false.
+-- set richard and billy isVerified to true
+-- set default value of isVerified to false
 
 
 Completed:
