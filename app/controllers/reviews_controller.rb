@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :require_signin
+  before_action :require_signin, except: [:index]
   before_action :set_chair
 
   def index 
