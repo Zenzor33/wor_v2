@@ -19,6 +19,12 @@ private
 
   helper_method :current_user_admin?
 
+  def current_user_owner?(obj)
+    current_user && current_user.id == obj.user_id
+  end 
+
+  helper_method :current_user_owner?
+
   def require_admin 
     unless current_user_admin?
       redirect_to root_path, alert: "Unauthorized access!"
