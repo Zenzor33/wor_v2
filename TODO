@@ -1,0 +1,15 @@
+1. Create new Chair helper function current_user_owner?
+2. Require (admin || current_user_owner) to view and execute edit and delete chair
+3. Allow logged out users to read reviews
+
+
+1. Create new Chair helper function current_user_owner?
+- Create migration AddOwnerToChairs user:references
+- Create assocations
+-- Chair belongs_to User
+-- User has_many Chairs, dependent destroy (destroys chairs if user is deleted)
+- Create validations
+-- Chair requires user presence
+- Update controller
+- Create chair helper function current_user_owner?(chair)
+- Require (admin || current_user_owner) to view and execute edit and delete chair
