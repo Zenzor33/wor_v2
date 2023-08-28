@@ -1,3 +1,14 @@
+
+TODO:
+
+1. Create a boolean column in Users for isVerified
+2. Allow verified users to create, update, edit, and destroy chairs that they are the owner of. 
+3. Display the user's created chairs in the user's show page.
+
+
+
+
+Completed:
 1. Create new Chair helper function current_user_owner?
 2. Require (admin || current_user_owner) to view and execute edit and delete chair
 3. Allow logged out users to read reviews
