@@ -111,3 +111,12 @@
     <% end %>
   </ul>
 </div>
+
+<div class="flex flex-col items-center mt-8">
+  <h3 class="font-bold">My Listings:</h3>
+  <ul class="flex flex-col gap-1 mt-2">
+    <% @chair_listings.each do |c| %>
+      <li><%= c.company %> <%= c.name %></li>
+    <% end %>
+  </ul>
+</div>

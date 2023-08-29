@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show  
     @user = User.find(params[:id])
     @liked_chairs = @user.liked_chairs
+    @chair_listings = @user.chairs
   end
 
   def new
