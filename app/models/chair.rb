@@ -13,9 +13,10 @@ class Chair < ApplicationRecord
 
   has_one_attached :main_image
 
-
+  validate :acceptable_image
   validates :name, :available_from, :user, presence: true
   validates :slug, presence: true, uniqueness: true
+
 
   scope :available, -> { where("available_from < ?", Time.now).order("available_from") }
   # TODO: change Time.now to Time.current
@@ -35,5 +36,18 @@ class Chair < ApplicationRecord
 
   def set_slug
     self.slug = name.parameterize
+  end 
+
+  def acceptable_image
+    return unless main_image.attached?
+
+    unless main_image.blob.byte_size <= 1.megabyte
+      errors.add(:main_image, "is too big")
+    end
+  
+    acceptable_types = ["image/jpeg", "image/jpg", "image/png"]
+    unless acceptable_types.include?(main_image.blob.content_type)
+      errors.add(:main_image, "must be a JPG, JPEG or PNG")
+    end
   end 
 end
