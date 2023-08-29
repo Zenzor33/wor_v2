@@ -1,6 +1,11 @@
 
 TODO:
 
+1. Display the user's created chairs in the user's show page.
+-- Update the view template to only show the new button to verified users
+
+
+Completed:
 1. Create a boolean column in Users for verified
 2. Allow verified users to create, update, edit, and destroy chairs that they are the owner of. 
 3. Display the user's created chairs in the user's show page.
@@ -16,8 +21,6 @@ TODO:
 2. Allow verified users to create, update, edit, and destroy chairs that they are the owner of. 
 -- Create helper function isVerified?(user)
 -- Require verified_user to create chairs
--- Update the view template to only show the new button to verified users
-
 
 Completed:
 1. Create new Chair helper function current_user_owner?
