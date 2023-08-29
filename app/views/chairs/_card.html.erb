@@ -20,12 +20,13 @@
     <% chair.each do |chair| %>
       <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
         <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
+          <%= main_image(chair) %>
           <%# <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg" alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green." class="h-full w-full object-cover object-center sm:h-full sm:w-full"> %>
-          <% if chair.picture.present? %>
-						<%= image_tag chair.picture, class: "h-full w-full object-cover object-center sm:h-full sm:w-full"%>
-          <% else %>
-            <%= image_tag "placeholder_chair.jpg", class: "h-full w-full object-cover object-center sm:h-full sm:w-full"%>
-          <% end %>
+          <%# if chair.picture.present? %>
+						<%#= image_tag chair.picture, class: "h-full w-full object-cover object-center sm:h-full sm:w-full"%>
+          <%# else %>
+            <%#= image_tag "placeholder_chair.jpg", class: "h-full w-full object-cover object-center sm:h-full sm:w-full"%>
+          <%# end %>
         </div>
         <div class="flex flex-1 flex-col space-y-2 p-4">
           <h3 class="text-sm font-medium text-gray-900">

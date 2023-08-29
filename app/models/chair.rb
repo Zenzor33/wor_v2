@@ -11,6 +11,8 @@ class Chair < ApplicationRecord
   has_many :features, through: :feature_assignments
   belongs_to :user
 
+  has_one_attached :main_image
+
 
   validates :name, :available_from, :user, presence: true
   validates :slug, presence: true, uniqueness: true
