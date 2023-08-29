@@ -1,6 +1,6 @@
 class ChairsController < ApplicationController
 
-  before_action :require_admin, only: [:new, :create]
+  before_action :require_admin_or_verified, only: [:new, :create]
   before_action :set_chair, only: [:show, :edit, :update, :destroy]
 
   def index 
@@ -12,7 +12,6 @@ class ChairsController < ApplicationController
   end
 
   def show 
-    # @chair = Chair.find_by!(slug: params[:id])
     @features = @chair.features.order(:name)
     @likers = @chair.likers 
   end
