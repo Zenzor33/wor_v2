@@ -2,13 +2,19 @@ TODO:
 
 1. Allow new users to upload an avatar.
 2. Display user's avatar in user's show page, in the navbar, and in the user's reviews.
-
 3. Allow new users to upload an avatar.
+4. Refactor acceptable_image private method in User and Chair
+
+5. Allow new users to upload an avatar
 
 - Declare attachment association between User and :user_avatar
 - Update the registration form
+- Update controller
+- Create validation for avatar
 - Create a view helper for user_avatar and update the views
 - Upload an avatar
+
+6. Display user's avatar in user's show page, in the navbar, and in the user's reviews.
 
 Completed:
 

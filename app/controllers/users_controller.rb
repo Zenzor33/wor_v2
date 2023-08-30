@@ -57,5 +57,5 @@ end
 def user_params
   @user = User.find_by(params[:name])
   params.require(:user).
-   permit(:name, :email, :password, :password_confirmation)
+   permit(:name, :email, :avatar, :password, :password_confirmation)
 end
