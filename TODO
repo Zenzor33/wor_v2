@@ -1,40 +1,50 @@
-
 TODO:
 
+1. Allow new users to upload an avatar.
+2. Display user's avatar in user's show page, in the navbar, and in the user's reviews.
+
+3. Allow new users to upload an avatar.
+
+- Declare attachment association between User and :user_avatar
+- Update the registration form
+- Create a view helper for user_avatar and update the views
+- Upload an avatar
+
+Completed:
+
 1. Display the user's created chairs in the user's show page.
--- Update the view template to only show the new button to verified users
-
-
-Completed:
-1. Create a boolean column in Users for verified
-2. Allow verified users to create, update, edit, and destroy chairs that they are the owner of. 
-3. Display the user's created chairs in the user's show page.
+   -- Update the view template to only show the new button to verified users
 
 1. Create a boolean column in Users for verified
--- rails g migration AddVerifiedToUsers Verified boolean
--- remove nil value from migration
--- run migration
--- set value of verified to all users except richard and billy to false.
--- set richard and billy verified to true
--- set default value of verified to false
+1. Allow verified users to create, update, edit, and destroy chairs that they are the owner of.
+1. Display the user's created chairs in the user's show page.
 
-2. Allow verified users to create, update, edit, and destroy chairs that they are the owner of. 
--- Create helper function isVerified?(user)
--- Require verified_user to create chairs
+1. Create a boolean column in Users for verified
+   -- rails g migration AddVerifiedToUsers Verified boolean
+   -- remove nil value from migration
+   -- run migration
+   -- set value of verified to all users except richard and billy to false.
+   -- set richard and billy verified to true
+   -- set default value of verified to false
+
+1. Allow verified users to create, update, edit, and destroy chairs that they are the owner of.
+   -- Create helper function isVerified?(user)
+   -- Require verified_user to create chairs
 
 Completed:
+
 1. Create new Chair helper function current_user_owner?
 2. Require (admin || current_user_owner) to view and execute edit and delete chair
 3. Allow logged out users to read reviews
 
+4. Create new Chair helper function current_user_owner?
 
-1. Create new Chair helper function current_user_owner?
 - Create migration AddOwnerToChairs user:references
 - Create assocations
--- Chair belongs_to User
--- User has_many Chairs, dependent destroy (destroys chairs if user is deleted)
+  -- Chair belongs_to User
+  -- User has_many Chairs, dependent destroy (destroys chairs if user is deleted)
 - Create validations
--- Chair requires user presence
+  -- Chair requires user presence
 - Update controller
 - Create chair helper function current_user_owner?(chair)
 - Require (admin || current_user_owner) to view and execute edit and delete chair
